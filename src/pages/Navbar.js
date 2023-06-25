@@ -21,10 +21,12 @@ import routes from "./routes";
 
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import Badge from "@mui/material/Badge";
 import { ThemeProvider } from "@emotion/react";
 import { Paper } from "@mui/material";
 
-const drawerWidth = 240;
+const drawerWidth = 290;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -182,6 +184,7 @@ export default function Navbar(props) {
               noWrap
               component="div"
               sx={{
+                flexGrow: 1,
                 color:
                   theme.palette.mode === "light"
                     ? "sideBarText.light"
@@ -192,6 +195,11 @@ export default function Navbar(props) {
             >
               {toolbarHeader}
             </Typography>
+            <IconButton color="inherit">
+              <Badge badgeContent={4} color="error">
+                <NotificationsIcon sx={{ color: "#5B96F7" }} />
+              </Badge>
+            </IconButton>
           </Toolbar>
         </AppBar>
         <Drawer

@@ -1,12 +1,7 @@
-import WorkIcon from "@mui/icons-material/Work";
-import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
-import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import CreateIcon from "@mui/icons-material/Create";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import SearchIcon from "@mui/icons-material/Search";
-import DescriptionIcon from "@mui/icons-material/Description";
-import AccountTreeIcon from "@mui/icons-material/AccountTree";
+import FeedIcon from "@mui/icons-material/Feed";
+import SchoolIcon from "@mui/icons-material/School";
+import ConstructionIcon from "@mui/icons-material/Construction";
 
 const routes = [
   {
@@ -15,14 +10,19 @@ const routes = [
     icon: <DashboardIcon />,
   },
   {
-    title: "Job Posts",
-    link: "/job-posts",
-    icon: <WorkIcon />,
+    title: "News & Research",
+    link: "/news",
+    icon: <FeedIcon />,
   },
   {
-    title: "Profile",
-    link: "/profile",
-    icon: <AccountCircleIcon />,
+    title: "Tools",
+    link: "/engagement",
+    icon: <ConstructionIcon />,
+  },
+  {
+    title: "Scholarship & Grants",
+    link: "/scolarships",
+    icon: <SchoolIcon />,
   },
 ];
 
