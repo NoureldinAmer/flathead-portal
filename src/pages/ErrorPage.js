@@ -1,13 +1,16 @@
 import { Button, Typography } from "@mui/material";
 import { Box, Stack } from "@mui/system";
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { HeaderContext } from "../contexts/HeaderContext";
 
 function ErrorPage() {
   const navigate = useNavigate();
+  const { setCurrentHeader } = useContext(HeaderContext);
 
   useEffect(() => {
     document.title = "Error: page not found";
+    setCurrentHeader("Page Not Found");
   }, []);
 
   return (

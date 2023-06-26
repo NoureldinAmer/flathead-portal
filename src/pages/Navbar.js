@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import { createTheme, styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -25,6 +25,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import Badge from "@mui/material/Badge";
 import { ThemeProvider } from "@emotion/react";
 import { Paper } from "@mui/material";
+import { HeaderContext } from "../contexts/HeaderContext";
 
 const drawerWidth = 290;
 
@@ -94,10 +95,10 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function Navbar(props) {
-  const [toolbarHeader, setToolbarHeader] = useState("Home");
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem("darkmode") === "true" ? true : false
   );
+  const { setCurrentHeader, header } = useContext(HeaderContext);
   const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
@@ -193,7 +194,7 @@ export default function Navbar(props) {
               fontFamily={"IBM Plex Sans"}
               fontWeight="500"
             >
-              {toolbarHeader}
+              {header}
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="error">
@@ -236,7 +237,7 @@ export default function Navbar(props) {
                 }}
                 onClick={() => {
                   navigate(route.link);
-                  setToolbarHeader(route.title);
+                  setCurrentHeader(route.title);
                 }}
               >
                 <ListItemButton
@@ -244,20 +245,20 @@ export default function Navbar(props) {
                     minHeight: 48,
                     borderRadius: "10px",
                     backgroundColor:
-                      route.title === toolbarHeader
+                      route.title === header
                         ? theme.palette.mode === "light"
                           ? "sideBarText.selectedLight"
                           : "sideBarText.selectedDark"
                         : null,
                     color:
-                      route.title === toolbarHeader
+                      route.title === header
                         ? theme.palette.mode === "light"
                           ? "sideBarText.selectedTextLight"
                           : "sideBarText.selectedTextDark"
                         : null,
                     "&:hover": {
                       backgroundColor:
-                        route.title === toolbarHeader
+                        route.title === header
                           ? theme.palette.mode === "light"
                             ? "sideBarText.hoverLight"
                             : "sideBarText.hoverDark"
@@ -273,7 +274,7 @@ export default function Navbar(props) {
                       mr: open ? 3 : "auto",
                       justifyContent: "center",
                       color:
-                        route.title === toolbarHeader
+                        route.title === header
                           ? theme.palette.mode === "light"
                             ? "sideBarIcons.selectedLight"
                             : "sideBarIcons.selectedDark"
