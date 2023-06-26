@@ -20,8 +20,8 @@ const routes = [
     icon: <ConstructionIcon />,
   },
   {
-    title: "Scholarship & Grants",
-    link: "/scolarships",
+    title: "Scholarships & Grants",
+    link: "/grants",
     icon: <SchoolIcon />,
   },
 ];
